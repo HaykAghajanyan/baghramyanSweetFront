@@ -1,9 +1,17 @@
-import { RouterProvider } from "react-router-dom";
-import { router } from "src/app/router.js";
+import { Route, Routes } from "react-router";
+import Dashboard from "src/pages/Dashboard/index.jsx";
+import RootLayout from "src/app/routes/RootLayout.jsx";
 import "./App.css";
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <Routes>
+      <Route path="/" element={<RootLayout />}>
+        <Route index={true} element={<Dashboard />} />
+        <Route path="login" element={<Dashboard />} />
+      </Route>
+    </Routes>
+  );
 }
 
 export default App;
